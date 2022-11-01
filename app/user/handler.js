@@ -1,6 +1,7 @@
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 const { validateUserCreateSchema } = require('../../validator/user');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
     handlerGetUser: async (req, res) => {
@@ -47,7 +48,7 @@ module.exports = {
                 message: error.message,
             });
         }
-    },     
+    },
     handlerUpdateUser: async (req, res) => {
         try {
             const { id } = req.params;
@@ -104,6 +105,16 @@ module.exports = {
                     phone,
                 },
             });
+            const accessToken = jwt.sign(
+                {
+                    id: user.id,
+                    name: user.name,
+                    role: user.role,
+                    phone: user.phone,
+                },
+                'gestari-secret-key',
+                { expiresIn: '1h' }
+            );
             if (!user) {
                 res.status(400).json({
                     status: 'error',
@@ -119,7 +130,7 @@ module.exports = {
                 } else {
                     res.status(200).json({
                         status: 'success',
-                        data: user,
+                        data: { user, accessToken },
                     });
                 }
             }
