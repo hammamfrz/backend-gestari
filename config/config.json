@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "itc",
-    "password": "itcnihbos",
+    "username": "root",
+    "password": "",
     "database": "gestari",
-    "host": "188.166.204.247",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "itc",
-    "password": "itcnihbos",
+    "username": "root",
+    "password": "",
     "database": "gestari",
-    "host": "188.166.204.247",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
-    "username": "itc",
-    "password": "itcnihbos",
+    "username": "root",
+    "password": "",
     "database": "gestari",
-    "host": "188.166.204.247",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }

@@ -35,7 +35,7 @@ module.exports = {
                 idNumber: req.body.idNumber,
                 idMember: req.body.idMember,
                 gender: 'L',
-                role: 'user',
+                role: 'admin',
             });
             res.status(201).json({
                 status: 'success',
