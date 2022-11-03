@@ -15,3 +15,8 @@ const katalogUpdateSchema = joi.object({
     type: joi.string().min(3).max(30).required(),
     image: joi.string().min(3).max(30).required(),
 }).unknown();
+
+module.exports = {
+    katalogCreateSchema,
+    katalogUpdateSchema,
+};

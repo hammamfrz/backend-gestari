@@ -1,5 +1,5 @@
-const { Katalog } = require('../models');
-const { validateKatalogCreateSchema } = require('../validator/katalog');
+const { Katalog } = require('../../models');
+const { validateKatalogCreateSchema } = require('../../validator/katalog');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -19,11 +19,13 @@ module.exports = {
     },
     handlerCreateKatalog: async (req, res) => {
         try {
-            const { type, name } = req.body;
+            const { type, name, price, image } = req.body;
             validateKatalogCreateSchema(req.body);
             const katalog = await Katalog.create({
                 type,
                 name,
+                image: req.body.image,
+                price: req.body.price,
             });
             res.status(201).json({
                 status: 'success',

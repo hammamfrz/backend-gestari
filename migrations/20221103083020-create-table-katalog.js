@@ -19,7 +19,11 @@ module.exports = {
         allowNull: false,
       },
       image: {
-        type: Sequelize.LONGBLOB,
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       createdAt: {
