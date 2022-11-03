@@ -20,10 +20,12 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
+        defaultValue: 'default.png',
         allowNull: false,
       },
       price: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
         allowNull: false,
       },
       createdAt: {
