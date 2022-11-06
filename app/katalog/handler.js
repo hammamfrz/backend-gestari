@@ -17,6 +17,25 @@ module.exports = {
             });
         }
     },
+    handlerGetKatalogById: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const katalog = await Katalog.findOne({
+                where: {
+                    id,
+                },
+            });
+            res.status(200).json({
+                status: 'katalog berhasil ditemukan!',
+                data: katalog,
+            });
+        } catch (error) {
+            res.status(500).json({
+                status: 'katalog tidak ditemukan!',
+                message: error.message,
+            });
+        }
+    },
     handlerCreateKatalog: async (req, res) => {
         try {
             const { type, name, price, image } = req.body;
