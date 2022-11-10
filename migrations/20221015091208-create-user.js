@@ -34,7 +34,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      idNumber: {
+      id_number: {
         type: Sequelize.STRING,
         allowNull: true,
       },
@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.ENUM('L', 'P'),
         allowNull: false,
       },
-      idMember: {
+      id_member: {
         type: Sequelize.STRING,
         allowNull: false,
       },
