@@ -1,0 +1,54 @@
+K1,KERTAS,Kerdus Tebal,2.500,kg,http://localhost:3000/images/K1.png
+K2,KERTAS,Duplex,1.000,kg,http://localhost:3000/images/K2.png
+K3,KERTAS,HVS,3.000,kg,http://localhost:3000/images/K3.png
+K4,KERTAS,Buku Buram,2.000,kg,http://localhost:3000/images/K4.png
+K5,KERTAS,Koran,4.000,kg,http://localhost:3000/images/K5.png
+K6,KERTAS,Sak Semen,3.000,kg,http://localhost:3000/images/K6.png
+P1,PLASTIK,Botol / Galon Air Mineral,2.500,kg,http://localhost:3000/images/P1.png
+P2,PLASTIK,Gelas Air Mineral,3.700,kg,http://localhost:3000/images/P2.png
+P3,PLASTIK,Gelas Ale-ale,2.700,kg,http://localhost:3000/images/P3.png
+P4,PLASTIK,Ember Campur,2.500,kg,http://localhost:3000/images/P4.png
+P5,PLASTIK,Ember Putih,3.500,kg,http://localhost:3000/images/P5.png
+P6,PLASTIK,Ember Warna,2.700,kg,http://localhost:3000/images/P6.png
+P7,PLASTIK,Ember Hitam,2.300,kg,http://localhost:3000/images/P7.png
+P8,PLASTIK,Kerasan,700,kg,http://localhost:3000/images/P8.png
+P9,PLASTIK,Tutup Botol,4.000,kg,http://localhost:3000/images/P9.png
+P10,PLASTIK,Tutup Galon,4.500,kg,http://localhost:3000/images/P10.png
+P11,PLASTIK,Tutup Gas Elpiji,4.000,kg,http://localhost:3000/images/P11.png
+P12,PLASTIK,Plastik Kresek,700,kg,http://localhost:3000/images/P12.png
+P13,PLASTIK,Termoplas / Bungkus Kemasan,150,kg,http://localhost:3000/images/P13.png
+P14,PLASTIK,Ecobrick 600 ml,2.000,buah,http://localhost:3000/images/P14.png
+P15,PLASTIK,Ecobrick 1500 ml,5.000,buah,http://localhost:3000/images/P15.png
+P16,PLASTIK,Mika tebal,200,kg,http://localhost:3000/images/P16.png
+P17,PLASTIK,Kabin,3.000,kg,http://localhost:3000/images/P17.png
+P18,PLASTIK,Botol Oli,3.500,kg,http://localhost:3000/images/P18.png
+L1,LOGAM,Besi A,3.000,kg,http://localhost:3000/images/L1.png
+L2,LOGAM,Besi B,2.500,kg,http://localhost:3000/images/L2.png
+L3,LOGAM,Paku,2.500,kg,http://localhost:3000/images/L3.png
+L4,LOGAM,Seng,1.000,kg,http://localhost:3000/images/L4.png
+L5,LOGAM,Alumunium,10.000,kg,http://localhost:3000/images/L5.png
+L6,LOGAM,Kaleng Kue,1.500,kg,http://localhost:3000/images/L6.png
+L7,LOGAM,Kaleng Minuman / Pengharum Ruangan,7.000,kg,http://localhost:3000/images/L7.png
+L8,LOGAM,Kawat,3.500,kg,http://localhost:3000/images/L8.png
+L9,LOGAM,Sendok Stainless Steel,3.500,kg,http://localhost:3000/images/L9.png
+L10,LOGAM,Plat Kendaraan,1.200,kg,http://localhost:3000/images/L10.png
+L11,LOGAM,Galvalum,3.500,kg,http://localhost:3000/images/L11.png
+L12,LOGAM,Peleg Sepeda,3.000,kg,http://localhost:3000/images/L12.png
+B1,KACA,Pecahan Kaca / You C1000,200,kg,http://localhost:3000/images/B1.png
+B2,KACA,Botol Sirup,200,buah,http://localhost:3000/images/B2.png
+B3,KACA,Botol Bir,600,buah,http://localhost:3000/images/B3.png
+B4,KACA,Botol Kecap,300,buah,http://localhost:3000/images/B4.png
+O1,KHUSUS,Minyak Jelantah,2.500,kg,http://localhost:3000/images/O1.png
+O2,KHUSUS,Sepatu / Sendal,400,kg,http://localhost:3000/images/O2.png
+O3,KHUSUS,Magic Com,4.000,kg,http://localhost:3000/images/O3.png
+O4,KHUSUS,Termos,2.000,kg,http://localhost:3000/images/O4.png
+O5,KHUSUS,Mixer,2.500,kg,http://localhost:3000/images/O5.png
+O6,KHUSUS,Printer,2.500,kg,http://localhost:3000/images/O6.png
+O7,KHUSUS,Tempat Beras,2.500,kg,http://localhost:3000/images/O6.png
+O8,KHUSUS,Oven,2.500,kg,http://localhost:3000/images/O7.png
+O9,KHUSUS,Kompor,2.500,kg,http://localhost:3000/images/O8.png
+O10,KHUSUS,Kipas Angin,3.000,kg,http://localhost:3000/images/O9.png
+O11,KHUSUS,Aki / Radiator,10.000,kg,http://localhost:3000/images/O10.png
+O12,KHUSUS,Kabel,5.000,kg,http://localhost:3000/images/O12.png
+O13,KHUSUS,Sepeda,4.000,kg,http://localhost:3000/images/O13.png
+O14,KHUSUS,Campur - Campur,500,kg,http://localhost:3000/images/O14.png
