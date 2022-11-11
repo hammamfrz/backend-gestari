@@ -32,9 +32,6 @@ const toJSON = (csv) => {
     }
     jsonArray.push(obj);
   }
-  // console.log(jsonArray);
-
-  // console.log(jsonArray);
   return jsonArray;
 };
 

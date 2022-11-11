@@ -45,6 +45,8 @@ module.exports = {
                 name,
                 image: req.body.image,
                 price: req.body.price,
+                satuan: req.body.satuan,
+                kode_katalog: req.body.kode_katalog,
             });
             res.status(201).json({
                 status: 'success',
@@ -73,6 +75,10 @@ module.exports = {
             await katalog.update({
                 type,
                 name,
+                price,
+                image,
+                satuan,
+                kode_katalog,
             });
 
             res.status(200).json({

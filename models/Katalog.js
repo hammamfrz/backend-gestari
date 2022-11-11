@@ -7,10 +7,23 @@ function createModelKatalog(sequelize, DataTypes) {
           allowNull: false,
       },
       type: {
-        type: DataTypes.ENUM('kertas', 'plastik', 'kaca', 'logam', 'khusus'),
+        type: DataTypes.ENUM('KERTAS', 'PLASTIK', 'KACA', 'LOGAM', 'KHUSUS'),
         allowNull: false,
       },
       name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      satuan: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      kode_katalog: {
         type: DataTypes.STRING,
         allowNull: false,
       },
