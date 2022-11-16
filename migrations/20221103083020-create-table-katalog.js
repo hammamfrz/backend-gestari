@@ -12,7 +12,8 @@ module.exports = {
       },
       kode_katalog: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       type: {
         type: Sequelize.ENUM('KERTAS', 'PLASTIK', 'KACA', 'LOGAM', 'KHUSUS'),

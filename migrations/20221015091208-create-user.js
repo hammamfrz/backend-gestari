@@ -51,6 +51,11 @@ module.exports = {
         defaultValue: 'user',
         allowNull: false,
       },
+      balance: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
