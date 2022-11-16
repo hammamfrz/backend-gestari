@@ -32,8 +32,8 @@ module.exports = {
                 password: hashPassword,
                 birthdate: req.body.birthdate,
                 birthplace: req.body.birthplace,
-                idNumber: req.body.idNumber,
-                idMember: req.body.idMember,
+                id_number: req.body.id_number,
+                id_member: req.body.id_member,
                 gender: 'L',
                 role: 'admin',
             });
