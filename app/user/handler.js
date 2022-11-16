@@ -6,10 +6,10 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     handlerGetUser: async (req, res) => {
         try {
-            const users = await User.findAll();
+            const user = await User.findAll();
             res.status(200).json({
                 status: 'success',
-                data: users,
+                data: user,
             });
         } catch (error) {
             res.status(500).json({

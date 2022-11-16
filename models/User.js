@@ -30,7 +30,7 @@ function createModelUser(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      idNumber: {
+      id_number: {
         type: DataTypes.STRING,
         allowNull: true,
       },
@@ -38,7 +38,7 @@ function createModelUser(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      idMember: {
+      id_member: {
         type: DataTypes.STRING,
         allowNull: false,
       },
