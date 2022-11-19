@@ -5,8 +5,8 @@ const router = express.Router();
 // API 1: GET /user
 router.get('/', handlerGetUser);
 
-// API 2: CREATE/REGISTER /user
-router.post('/', handlerCreateUser);
+// API 2: CREATE/REGISTER /user/register
+router.post('/register', handlerCreateUser);
 
 // API 3: UPDATE /user/:id
 router.put('/:id', handlerUpdateUser);
