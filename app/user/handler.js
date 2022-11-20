@@ -99,10 +99,10 @@ module.exports = {
     },
     handlerLoginUser: async (req, res) => {
         try {
-            const { phone, password } = req.body;
+            const { email, password } = req.body;
             const user = await User.findOne({
                 where: {
-                    phone,
+                    email,
                 },
             });
             const accessToken = jwt.sign(
@@ -111,6 +111,8 @@ module.exports = {
                     name: user.name,
                     role: user.role,
                     phone: user.phone,
+                    email: user.email,
+                    address: user.address,
                 },
                 'gestari-secret-key',
                 { expiresIn: '1h' }
@@ -118,14 +120,14 @@ module.exports = {
             if (!user) {
                 res.status(400).json({
                     status: 'error',
-                    message: 'Nomor HP atau Password tidak valid!',
+                    message: 'Email atau Password tidak valid!',
                 });
             } else {
                 const isValidPassword = await bcrypt.compare(password, user.password);
                 if (!isValidPassword) {
                     res.status(400).json({
                         status: 'error',
-                        message: 'Nomor HP atau Password tidak valid!',
+                        message: 'Email atau Password tidak valid!',
                     });
                 } else {
                     res.status(200).json({
