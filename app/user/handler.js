@@ -105,15 +105,18 @@ module.exports = {
                     email,
                 },
             });
-            const accessToken = jwt.sign(
-                {
-                    id: user.id,
-                    name: user.name,
-                    role: user.role,
-                    phone: user.phone,
-                    email: user.email,
-                    address: user.address,
-                },
+            const accessToken = jwt.sign({
+                id: user.id,
+                name: user.name,
+                role: user.role,
+                phone: user.phone,
+                email: user.email,
+                address: user.address,
+                birthdate: user.birthdate,
+                birthplace: user.birthplace,
+                id_number: user.id_number,
+                id_member: user.id_member,
+            },
                 'gestari-secret-key',
                 { expiresIn: '1h' }
             );
