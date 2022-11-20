@@ -10,11 +10,23 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
+      id_member: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      NIK: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       password: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      name: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -34,16 +46,8 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      id_number: {
-        type: Sequelize.STRING,
-        allowNull: true,
-      },
       gender: {
         type: Sequelize.ENUM('L', 'P'),
-        allowNull: false,
-      },
-      id_member: {
-        type: Sequelize.STRING,
         allowNull: false,
       },
       role: {
@@ -55,6 +59,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0,
         allowNull: false,
+      },
+      profile_picture: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       createdAt: {
         type: Sequelize.DATE,

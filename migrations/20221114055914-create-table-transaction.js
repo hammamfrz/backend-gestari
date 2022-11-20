@@ -18,11 +18,31 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      qty: {
+      kertas_qty: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      total: {
+      plastik_qty: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      kaca_qty: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      logam_qty: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      khusus_qty: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      total_qty: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      total_price: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
