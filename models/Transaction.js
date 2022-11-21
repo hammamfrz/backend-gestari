@@ -50,13 +50,7 @@ function createModelTransaction(sequelize, DataTypes) {
     timestamps: false,
     tableName: 'transactions',
   });
-
-  Transaction.associate = (models) => {
-    Transaction.belongsTo(models.Account, {
-      foreignKey: 'account_id',
-      as: 'account',
-    });
-  };
-
   return Transaction;
 }
+
+module.exports = createModelTransaction;

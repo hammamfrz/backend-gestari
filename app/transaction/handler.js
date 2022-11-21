@@ -1,6 +1,5 @@
-const transaction = require('../models').transaction;
+const { transaction } = require('../../models');
 const { validateTransactionCreateSchema, validateTransactionUpdateSchema } = require('../validator/transaction');
-const { User } = require('../models');
 
 module.exports = {
     handlerGetTransaction: async (req, res) => {
