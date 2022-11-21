@@ -21,7 +21,7 @@ module.exports = {
     handlerCreateUser: async (req, res) => {
         try {
             console.log(req.body);
-            const { name, address, phone, id, password } = req.body;
+            const { name, address, phone, id, password, email } = req.body;
             validateUserCreateSchema(req.body);
             const hashPassword = await bcrypt.hash(password, 10);
             const user = await User.create({
@@ -32,10 +32,11 @@ module.exports = {
                 password: hashPassword,
                 birthdate: req.body.birthdate,
                 birthplace: req.body.birthplace,
-                id_number: req.body.id_number,
+                NIK: req.body.NIK,
                 id_member: req.body.id_member,
-                gender: 'L',
-                role: 'admin',
+                email: req.body.email,
+                balance: req.body.balance,
+                profile_picture: req.body.profile_picture,
             });
             res.status(201).json({
                 status: 'success',
@@ -105,21 +106,6 @@ module.exports = {
                     email,
                 },
             });
-            const accessToken = jwt.sign({
-                id: user.id,
-                name: user.name,
-                role: user.role,
-                phone: user.phone,
-                email: user.email,
-                address: user.address,
-                birthdate: user.birthdate,
-                birthplace: user.birthplace,
-                id_number: user.id_number,
-                id_member: user.id_member,
-            },
-                'gestari-secret-key',
-                { expiresIn: '1h' }
-            );
             if (!user) {
                 res.status(400).json({
                     status: 'error',
@@ -133,6 +119,21 @@ module.exports = {
                         message: 'Email atau Password tidak valid!',
                     });
                 } else {
+                    const accessToken = jwt.sign({
+                        id: user.id,
+                        name: user.name,
+                        role: user.role,
+                        phone: user.phone,
+                        email: user.email,
+                        address: user.address,
+                        birthdate: user.birthdate,
+                        birthplace: user.birthplace,
+                        id_number: user.id_number,
+                        id_member: user.id_member,
+                    },
+                        'gestari-secret-key',
+                        { expiresIn: '1h' }
+                    );
                     res.status(200).json({
                         status: 'success',
                         data: { user, accessToken },
