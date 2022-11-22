@@ -12,11 +12,13 @@ module.exports = {
       },
       id_member: {
         type: Sequelize.STRING,
+        primaryKey: true,
         allowNull: false,
       },
       NIK: {
         type: Sequelize.STRING,
-        allowNull: true,
+        primaryKey: true,
+        allowNull: false,
       },
       name: {
         type: Sequelize.STRING,
@@ -48,17 +50,17 @@ module.exports = {
       },
       gender: {
         type: Sequelize.ENUM('L', 'P'),
-        allowNull: false,
+        allowNull: true,
       },
       role: {
         type: Sequelize.ENUM('admin', 'user', 'superadmin'),
         defaultValue: 'user',
-        allowNull: false,
+        allowNull: true,
       },
       balance: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        allowNull: false,
+        allowNull: true,
       },
       profile_picture: {
         type: Sequelize.STRING,

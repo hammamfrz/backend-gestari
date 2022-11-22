@@ -7,10 +7,12 @@ function createModelUser(sequelize, DataTypes) {
         allowNull: false,
     },
     id_member: {
+      primaryKey: true,
       type: DataTypes.STRING,
       allowNull: false,
     },
     NIK: {
+      primaryKey: true,
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -43,16 +45,18 @@ function createModelUser(sequelize, DataTypes) {
       allowNull: false,
     },
     gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.ENUM('L', 'P'),
+      allowNull: true,
     },
     role: {
-      type: DataTypes.ENUM('admin', 'user'),
-      allowNull: false,
+      type: DataTypes.ENUM('admin', 'user', 'superadmin'),
+      defaultValue: 'user',
+      allowNull: true,
     },
     balance: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
+      allowNull: true,
     },
     profile_picture: {
       type: DataTypes.STRING,

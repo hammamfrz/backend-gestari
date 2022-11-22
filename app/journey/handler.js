@@ -41,12 +41,10 @@ module.exports = {
             const { type, name, price, image } = req.body;
             validateJourneyCreateSchema(req.body);
             const journey = await Journey.create({
-                type,
-                name,
+                id,
+                title,
                 image: req.body.image,
-                price: req.body.price,
-                satuan: req.body.satuan,
-                kode_journey: req.body.kode_journey,
+                description: req.body.description,
             });
             res.status(201).json({
                 status: 'success',
@@ -62,19 +60,22 @@ module.exports = {
     handlerUpdateJourney: async (req, res) => {
         try {
             const { id } = req.params;
-            const { type, name, price, image } = req.body;
-            const journey = await Journey.update({
-                type,
-                name,
-                image: req.body.image,
-                price: req.body.price,
-                satuan: req.body.satuan,
-                kode_journey: req.body.kode_journey,
-            }, {
-                where: {
-                    id,
-                },
+            const { title, image, description } = req.body;
+            const journey = await Journey.findByPk(id);
+
+            if (!journey) {
+                res.status(404).json({
+                    status: 'error',
+                    message: 'journey tidak ditemukan!',
+                });
+            }
+
+            await journey.update({
+                title,
+                image,
+                description,
             });
+
             res.status(200).json({
                 status: 'success',
                 data: journey,
@@ -89,14 +90,19 @@ module.exports = {
     handlerDeleteJourney: async (req, res) => {
         try {
             const { id } = req.params;
-            const journey = await Journey.destroy({
-                where: {
-                    id,
-                },
-            });
+            const journey = await journey.findByPk(id);
+            if (!journey) {
+                res.status(404).json({
+                    status: 'error',
+                    message: 'journey tidak ditemukan!',
+                });
+            }
+
+            await journey.destroy();
+            
             res.status(200).json({
                 status: 'success',
-                data: journey,
+                message: 'journey berhasil dihapus!',
             });
         } catch (error) {
             res.status(500).json({
@@ -104,5 +110,5 @@ module.exports = {
                 message: error.message,
             });
         }
-    }
+    },
 };

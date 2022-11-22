@@ -36,6 +36,25 @@ module.exports = {
             });
         }
     },
+    handlerGetKatalogByType: async (req, res) => {
+        try {
+            const { type } = req.params;
+            const katalog = await Katalog.findAll({
+                where: {
+                    type,
+                },
+            });
+            res.status(200).json({
+                status: 'katalog berhasil ditemukan!',
+                data: katalog,
+            });
+        } catch (error) {
+            res.status(500).json({
+                status: 'katalog tidak ditemukan!',
+                message: error.message,
+            });
+        }
+    },
     handlerCreateKatalog: async (req, res) => {
         try {
             const { type, name, price, image } = req.body;
@@ -68,7 +87,7 @@ module.exports = {
             if (!katalog) {
                 res.status(400).json({
                     status: 'error',
-                    message: 'Katalog not found',
+                    message: 'Katalog tidak ditemukan!',
                 });
             }
 

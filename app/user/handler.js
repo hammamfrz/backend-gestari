@@ -30,13 +30,13 @@ module.exports = {
                 phone,
                 id,
                 password: hashPassword,
+                email,
+                id_member: req.body.id_member,
+                NIK: req.body.NIK,
                 birthdate: req.body.birthdate,
                 birthplace: req.body.birthplace,
-                NIK: req.body.NIK,
-                id_member: req.body.id_member,
-                email: req.body.email,
                 balance: req.body.balance,
-                profile_picture: req.body.profile_picture,
+                role: req.body.role,
             });
             res.status(201).json({
                 status: 'success',
