@@ -12,12 +12,12 @@ module.exports = {
       },
       id_member: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        unique: true,
         allowNull: false,
       },
       NIK: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        unique: true,
         allowNull: false,
       },
       name: {
@@ -30,6 +30,7 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
       },
       address: {
@@ -38,6 +39,7 @@ module.exports = {
       },
       phone: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
       },
       birthdate: {

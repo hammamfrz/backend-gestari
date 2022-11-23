@@ -7,17 +7,18 @@ function createModelUser(sequelize, DataTypes) {
         allowNull: false,
     },
     id_member: {
-      primaryKey: true,
+      unique: true,
       type: DataTypes.STRING,
       allowNull: false,
     },
     NIK: {
-      primaryKey: true,
+      unique: true,
       type: DataTypes.STRING,
       allowNull: true,
     },
     email: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
     password: {
@@ -34,6 +35,7 @@ function createModelUser(sequelize, DataTypes) {
     },
     phone: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
     birthdate: {

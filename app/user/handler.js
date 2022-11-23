@@ -21,7 +21,7 @@ module.exports = {
     handlerCreateUser: async (req, res) => {
         try {
             console.log(req.body);
-            const { name, address, phone, id, password, email } = req.body;
+            const { name, address, phone, id, password, email, NIK, id_member } = req.body;
             validateUserCreateSchema(req.body);
             const hashPassword = await bcrypt.hash(password, 10);
             const user = await User.create({
@@ -59,7 +59,7 @@ module.exports = {
             if (!user) {
                 res.status(400).json({
                     status: 'error',
-                    message: 'User already exists',
+                    message: 'user tidak ditemukan!',
                 });
             } else {
                 await user.update({
