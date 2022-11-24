@@ -54,7 +54,7 @@ module.exports = {
     handlerUpdateUser: async (req, res) => {
         try {
             const { id } = req.params;
-            const { name, address, phone } = req.body;
+            const { name, address, phone, profile_picture, NIK, email, password } = req.body;
             const user = await User.findByPk(id);
 
             if (!user) {
@@ -67,6 +67,10 @@ module.exports = {
                     name,
                     address,
                     phone,
+                    profile_picture, 
+                    NIK, 
+                    email, 
+                    password,
                 });
                 res.status(200).json({
                     status: 'success',
