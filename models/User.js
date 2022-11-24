@@ -9,7 +9,7 @@ function createModelUser(sequelize, DataTypes) {
     id_member: {
       unique: true,
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     NIK: {
       unique: true,

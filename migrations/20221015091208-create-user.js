@@ -13,7 +13,7 @@ module.exports = {
       id_member: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false,
+        allowNull: true,
       },
       NIK: {
         type: Sequelize.STRING,
@@ -57,12 +57,12 @@ module.exports = {
       role: {
         type: Sequelize.ENUM('admin', 'user', 'superadmin'),
         defaultValue: 'user',
-        allowNull: true,
+        allowNull: false,
       },
       balance: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
-        allowNull: true,
+        allowNull: false,
       },
       profile_picture: {
         type: Sequelize.STRING,

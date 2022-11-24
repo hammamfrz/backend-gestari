@@ -31,7 +31,6 @@ module.exports = {
                 id,
                 password: hashPassword,
                 email,
-                id_member: req.body.id_member,
                 NIK: req.body.NIK,
                 birthdate: req.body.birthdate,
                 birthplace: req.body.birthplace,
@@ -54,7 +53,7 @@ module.exports = {
     handlerUpdateUser: async (req, res) => {
         try {
             const { id } = req.params;
-            const { name, address, phone, profile_picture, NIK, email, password } = req.body;
+            const { name, address, phone, profile_picture, NIK, email, password, id_member } = req.body;
             const user = await User.findByPk(id);
 
             if (!user) {
@@ -64,6 +63,7 @@ module.exports = {
                 });
             } else {
                 await user.update({
+                    id_member,
                     name,
                     address,
                     phone,
