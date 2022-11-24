@@ -5,6 +5,7 @@ const logger = require('morgan');
 const userRouter = require('./app/user/route');
 const katalogRouter = require('./app/katalog/route');
 const journeyRouter = require('./app/journey/route');
+const transactionRouter = require('./app/transaction/route')
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user', userRouter);
 app.use('/katalog', katalogRouter);
 app.use('/journey', journeyRouter);
+app.use('/transaction', transactionRouter);
 
 module.exports = app;
