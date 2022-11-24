@@ -13,6 +13,7 @@ module.exports = {
       id_member: {
         type: Sequelize.STRING,
         unique: true,
+        defaultValue: null,
         allowNull: true,
       },
       NIK: {

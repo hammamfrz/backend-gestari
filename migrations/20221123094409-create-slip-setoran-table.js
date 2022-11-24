@@ -12,22 +12,10 @@ module.exports = {
       id_setoran: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'setoran',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'katalog',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       kertas_qty: {
         type: Sequelize.INTEGER,
