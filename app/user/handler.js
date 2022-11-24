@@ -37,6 +37,7 @@ module.exports = {
                 birthplace: req.body.birthplace,
                 balance: req.body.balance,
                 role: req.body.role,
+                profile_picture: req.body.profile_picture,
             });
             res.status(201).json({
                 status: 'success',

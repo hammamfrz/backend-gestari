@@ -25,13 +25,20 @@ module.exports = {
                     id,
                 },
             });
-            res.status(200).json({
-                status: 'katalog berhasil ditemukan!',
-                data: katalog,
-            });
+            if (!katalog) {
+                res.status(400).json({
+                    status: 'error',
+                    message: 'Katalog tidak ditemukan!',
+                });
+            } else {
+                res.status(200).json({
+                    status: 'success',
+                    data: katalog,
+                });
+            }
         } catch (error) {
             res.status(500).json({
-                status: 'katalog tidak ditemukan!',
+                status: 'error',
                 message: error.message,
             });
         }
@@ -44,13 +51,20 @@ module.exports = {
                     type,
                 },
             });
-            res.status(200).json({
-                status: 'katalog berhasil ditemukan!',
-                data: katalog,
-            });
+            if (!katalog) {
+                res.status(400).json({
+                    status: 'error',
+                    message: 'katalog tidak ditemukan!',
+                });
+            } else {
+                res.status(200).json({
+                    status: 'success',
+                    data: katalog,
+                });
+            }
         } catch (error) {
             res.status(500).json({
-                status: 'katalog tidak ditemukan!',
+                status: 'error',
                 message: error.message,
             });
         }
