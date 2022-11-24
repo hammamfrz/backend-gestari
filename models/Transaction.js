@@ -48,7 +48,7 @@ function createModelTransaction(sequelize, DataTypes) {
     },
   }, {
     timestamps: false,
-    tableName: 'transactions',
+    tableName: 'transaction',
   });
   return Transaction;
 }
