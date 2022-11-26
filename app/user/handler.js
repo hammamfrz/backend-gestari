@@ -26,17 +26,11 @@ module.exports = {
             const hashPassword = await bcrypt.hash(password, 10);
             const user = await User.create({
                 name,
-                address,
                 phone,
                 id,
                 password: hashPassword,
                 email,
                 NIK: req.body.NIK,
-                birthdate: req.body.birthdate,
-                birthplace: req.body.birthplace,
-                balance: req.body.balance,
-                role: req.body.role,
-                profile_picture: req.body.profile_picture,
             });
             res.status(201).json({
                 status: 'success',
