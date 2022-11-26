@@ -62,7 +62,7 @@ function createModelUser(sequelize, DataTypes) {
     },
     balance: {
       type: DataTypes.INTEGER,
-      defaultValue: null,
+      defaultValue: 0,
       allowNull: true,
     },
     profile_picture: {

@@ -9,6 +9,7 @@ const userCreateSchema = Joi.object({
 }).unknown();
 
 const userUpdateSchema = Joi.object({
+    balance: Joi.number().integer().min(0).required(),
     id_member: Joi.string().min(8).max(20).required(),
     gender: Joi.string().valid('L', 'P').required(),
     birthdate: Joi.date().required(),
