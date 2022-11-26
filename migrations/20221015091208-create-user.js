@@ -36,7 +36,8 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       phone: {
         type: Sequelize.STRING,
@@ -45,28 +46,32 @@ module.exports = {
       },
       birthdate: {
         type: Sequelize.DATE,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       birthplace: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       gender: {
         type: Sequelize.ENUM('L', 'P'),
+        defaultValue: null,
         allowNull: true,
       },
       role: {
         type: Sequelize.ENUM('admin', 'user', 'superadmin'),
         defaultValue: 'user',
-        allowNull: false,
+        allowNull: true,
       },
       balance: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       profile_picture: {
         type: Sequelize.STRING,
+        defaultValue: null,
         allowNull: true,
       },
       createdAt: {

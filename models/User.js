@@ -9,12 +9,13 @@ function createModelUser(sequelize, DataTypes) {
     id_member: {
       unique: true,
       type: DataTypes.STRING,
+      defaultValue: null,
       allowNull: true,
     },
     NIK: {
       unique: true,
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
@@ -31,7 +32,8 @@ function createModelUser(sequelize, DataTypes) {
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: null,
+      allowNull: true,
     },
     phone: {
       type: DataTypes.STRING,
@@ -40,14 +42,17 @@ function createModelUser(sequelize, DataTypes) {
     },
     birthdate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      defaultValue: null,
+      allowNull: true,
     },
     birthplace: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: null,
+      allowNull: true,
     },
     gender: {
       type: DataTypes.ENUM('L', 'P'),
+      defaultValue: null,
       allowNull: true,
     },
     role: {
@@ -57,11 +62,12 @@ function createModelUser(sequelize, DataTypes) {
     },
     balance: {
       type: DataTypes.INTEGER,
-      defaultValue: 0,
+      defaultValue: null,
       allowNull: true,
     },
     profile_picture: {
       type: DataTypes.STRING,
+      defaultValue: null,
       allowNull: true,
     },
     createdAt: {
