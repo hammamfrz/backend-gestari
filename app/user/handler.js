@@ -1,6 +1,6 @@
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
-const { validateUserCreateSchema } = require('../../validator/user');
+const { validateUserCreateSchema, validateUserUpdateSchema } = require('../../validator/user');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
