@@ -1,21 +1,21 @@
 'use strict';
 
-const toJSON = require("../utils/toJson");
+const toJSONJourney = require("../utils/toJsonJourney");
 
-/** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    const json = toJSON("journey.csv");
+  async up(queryInterface, Sequelize) {
+    const json = toJSONJourney("journey.csv");
     console.log(json);
     return queryInterface.bulkInsert("journey", json, {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
