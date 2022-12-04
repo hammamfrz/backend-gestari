@@ -5,7 +5,7 @@ var app = express();
 const cors = require('cors');
 
 app.use(cors({
-  origin: "https://hammerhead-app-zfi4g.ondigitalocean.app",
+  origin: "http://localhost:3000",
 }));
 
 /* GET home page. */
