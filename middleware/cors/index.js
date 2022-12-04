@@ -1,7 +1,7 @@
 const cors = require('cors');
 
 const corsOptions = {
-    origin: 'https://hammerhead-app-zfi4g.ondigitalocean.app/',
+    origin: '*',
     optionsSuccessStatus: 200
 };
 
