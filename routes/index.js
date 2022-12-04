@@ -4,11 +4,13 @@ var app = express();
 
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+}));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Gestari' });
+  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
