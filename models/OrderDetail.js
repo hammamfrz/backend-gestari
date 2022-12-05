@@ -6,10 +6,6 @@ function createModelOrderDetail(sequelize, DataTypes){
             primaryKey: true,
             allowNull: false,
           },
-          id_katalog: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-          },
           quantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -29,7 +25,16 @@ function createModelOrderDetail(sequelize, DataTypes){
     },{
         tableName: 'orderDetail',
     });
+    OrderDetail.associate = (models) => {
+      // 1 to Many with orderDetail
+      OrderDetail.hasMany(models.Katalog, {
+        foreignKey: 'katalogId',
+    });
+
+  };
     return OrderDetail;
 }
+
+
 
 module.exports = createModelOrderDetail;

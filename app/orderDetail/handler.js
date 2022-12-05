@@ -1,14 +1,15 @@
-const { Order } = require('../../models');
-const { validateCreateOrderSchema } = require('../../validator/order');
+const { OrderDetail } = require('../../models');
+const { katalogCreateSchema } = require('../../validator/katalog/schema');
+const { validateCreateOrderSchema } = require('../../validator/orderDetail');
 
 
 module.exports = {
-    handlerGetOrder: async (req, res) => {
+    handlerGetOrderDetail: async (req, res) => {
         try {
-            const order = await Order.findAll();
+            const orderDetail = await OrderDetail.findAll();
             res.status(200).json({
                 status: 'success',
-                data: order,
+                data: orderDetail,
             });
         } catch (error) {
             res.status(500).json({
@@ -18,10 +19,10 @@ module.exports = {
         }
 
     },
-    handlerGetOrderById: async (req, res) => {
+    handlerGetOrderDetailById: async (req, res) => {
         try {
             const { id } = req.params;
-            const order = await order.findByPk(id);
+            const orderDetail = await OrderDetail.findByPk(id);
             if (!order) {
                 res.status(400).json({
                     status: 'error',
@@ -30,7 +31,7 @@ module.exports = {
             }
             res.status(200).json({
                 status: 'success',
-                data: order,
+                data: orderDetail,
             });
         } catch (error) {
             res.status(500).json({
@@ -39,20 +40,22 @@ module.exports = {
             });
         }
     },
-    handlerCreateOrder: async (req, res) => {
+
+    handlerCreateOrderDetail: async (req, res) => {
         try {
-            const { id, id_member, status, dateOrdered } = req.body;
+            const { id, id_order, id_katalog, quantity, total_price} = req.body;
             validateCreateOrderSchema(req.body);
-            const order = await order.create({
+            
+            const orderDetail = await order.create({
                 id,
-                id_member,
-                id_transaction,
-                status,
-                dateOrdered,
+                id_order,
+                id_katalog,
+                quantity,
+                total_price,
             });
             res.status(201).json({
                 status: 'success',
-                data: order,
+                data: orderDetail,
             });
         } catch (error) {
             res.status(500).json({
@@ -60,5 +63,5 @@ module.exports = {
                 message: error.message,
             });
         }
-    }
+    },
 };

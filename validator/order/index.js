@@ -9,5 +9,5 @@ function validateCreateOrderSchema(payload) {
 
 
 module.exports = {
-    validateCreateOrderSchema,
+    validateCreateOrderSchema
 };

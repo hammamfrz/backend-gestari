@@ -10,6 +10,10 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
+      id_order: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,

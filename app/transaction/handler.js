@@ -1,4 +1,5 @@
-const { Transaction } = require('../../models');
+const Transaction = require('../../models/Transaction');
+const User = require('../../models/User');
 const { validateTransactionCreateSchema, validateTransactionUpdateSchema } = require('../../validator/transaction');
 
 module.exports = {
@@ -39,17 +40,18 @@ module.exports = {
     },
     handlerCreateTransaction: async (req, res) => {
         try {
-            const { id, id_user, id_journey, id_payment, id_status, total_price, quantity, date } = req.body;
+            const { id, status, id_katalog, quantity, dateRequired } = req.body;
             validateTransactionCreateSchema(req.body);
             const transaction = await Transaction.create({
                 id,
-                id_user,
-                id_journey,
-                id_payment,
-                id_status,
-                total_price,
+                status,
                 quantity,
-                date,
+                dateRequired,
+                include: [{
+                    model : User,
+                    as : "user",
+                    attribute : ['owner', 'name']
+                }]
             });
             res.status(201).json({
                 status: 'success',
