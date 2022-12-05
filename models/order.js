@@ -23,6 +23,14 @@ function createModelOrder(sequelize, DataTypes){
            type: DataTypes.DATE,
            allowNull: false,
           },
+          createdAt: {
+            type: Sequelize.DATE,
+            allowNull: false,
+          },
+          updatedAt: {
+            type: Sequelize.DATE,
+            allowNull: false,
+          },
     },{
         tableName: 'order',
     });

@@ -1,5 +1,5 @@
 const { Order } = require('../../models');
-const createModelOrderDetail = require('../../models/OrderDetail');
+const { validateCreateOrderSchema } = require('../../validator/order');
 
 
 module.exports = {
@@ -40,6 +40,26 @@ module.exports = {
         }
     },
     handlerCreateOrder: async (req, res) => {
-        
+        try {
+            const { id, id_member, status, total_price, quantity, dateOrdered } = req.body;
+            validateTransactionCreateSchema(req.body);
+            const transaction = await Transaction.create({
+                id,
+                id_member,
+                status,
+                total_price,
+                quantity,
+                dateOrdered,
+            });
+            res.status(201).json({
+                status: 'success',
+                data: order,
+            });
+        } catch (error) {
+            res.status(500).json({
+                status: 'error',
+                message: error.message,
+            });
+        }
     }
 };
