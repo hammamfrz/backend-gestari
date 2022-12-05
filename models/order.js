@@ -1,6 +1,6 @@
 function createModelOrder(sequelize, DataTypes){
     const Order = sequelize.define('order', {
-        order_id: {
+        id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
