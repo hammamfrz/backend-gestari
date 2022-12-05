@@ -5,16 +5,20 @@ function createModelJourney (sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
+    image: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING(500),
       allowNull: false
     }
   }, {

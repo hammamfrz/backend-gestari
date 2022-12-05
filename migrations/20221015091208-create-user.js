@@ -13,7 +13,8 @@ module.exports = {
       id_member: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       NIK: {
         type: Sequelize.STRING,
@@ -35,7 +36,8 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       phone: {
         type: Sequelize.STRING,
@@ -44,14 +46,17 @@ module.exports = {
       },
       birthdate: {
         type: Sequelize.DATE,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       birthplace: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       gender: {
         type: Sequelize.ENUM('L', 'P'),
+        defaultValue: null,
         allowNull: true,
       },
       role: {
@@ -66,6 +71,7 @@ module.exports = {
       },
       profile_picture: {
         type: Sequelize.STRING,
+        defaultValue: null,
         allowNull: true,
       },
       createdAt: {

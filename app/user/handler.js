@@ -1,6 +1,6 @@
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
-const { validateUserCreateSchema } = require('../../validator/user');
+const { validateUserCreateSchema, validateUserUpdateSchema } = require('../../validator/user');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -26,17 +26,11 @@ module.exports = {
             const hashPassword = await bcrypt.hash(password, 10);
             const user = await User.create({
                 name,
-                address,
                 phone,
                 id,
                 password: hashPassword,
                 email,
-                id_member: req.body.id_member,
                 NIK: req.body.NIK,
-                birthdate: req.body.birthdate,
-                birthplace: req.body.birthplace,
-                balance: req.body.balance,
-                role: req.body.role,
             });
             res.status(201).json({
                 status: 'success',
@@ -53,7 +47,7 @@ module.exports = {
     handlerUpdateUser: async (req, res) => {
         try {
             const { id } = req.params;
-            const { name, address, phone } = req.body;
+            const { name, address, phone, profile_picture, NIK, email, password, id_member } = req.body;
             const user = await User.findByPk(id);
 
             if (!user) {
@@ -63,9 +57,14 @@ module.exports = {
                 });
             } else {
                 await user.update({
+                    id_member,
                     name,
                     address,
                     phone,
+                    profile_picture, 
+                    NIK, 
+                    email, 
+                    password,
                 });
                 res.status(200).json({
                     status: 'success',

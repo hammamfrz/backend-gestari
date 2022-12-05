@@ -10,23 +10,27 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      image: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      description: {
+      image: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      created_at: {
+      date: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      updated_at: {
+      description: {
+        type: Sequelize.STRING(500),
+        allowNull: false,
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
       },

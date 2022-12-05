@@ -44,6 +44,7 @@ module.exports = {
                 id,
                 title,
                 image: req.body.image,
+                date,
                 description: req.body.description,
             });
             res.status(201).json({
@@ -60,7 +61,7 @@ module.exports = {
     handlerUpdateJourney: async (req, res) => {
         try {
             const { id } = req.params;
-            const { title, image, description } = req.body;
+            const { title, image, date, description } = req.body;
             const journey = await Journey.findByPk(id);
 
             if (!journey) {
@@ -73,6 +74,7 @@ module.exports = {
             await journey.update({
                 title,
                 image,
+                date,
                 description,
             });
 
