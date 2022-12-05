@@ -6,6 +6,7 @@ const userRouter = require('./app/user/route');
 const katalogRouter = require('./app/katalog/route');
 const journeyRouter = require('./app/journey/route');
 const transactionRouter = require('./app/transaction/route')
+const orderRouter = require('./app/order/route')
 const corsMiddleware = require('./middleware/cors');
 const router = require('./routes');
 
@@ -23,5 +24,6 @@ app.use('/user', userRouter);
 app.use('/katalog', katalogRouter);
 app.use('/journey', journeyRouter);
 app.use('/transaction', transactionRouter);
+app.use('/order', orderRouter);
 
 module.exports = app;

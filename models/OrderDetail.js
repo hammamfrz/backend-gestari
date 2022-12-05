@@ -1,13 +1,13 @@
 function createModelOrderDetail(sequelize, DataTypes){
     const OrderDetail = sequelize.define('orderDetail', {
           id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false,
           },
           id_katalog: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
           },
           quantity: {
@@ -19,11 +19,11 @@ function createModelOrderDetail(sequelize, DataTypes){
             allowNull: false,
           },
           createdAt: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false,
           },
           updatedAt: {
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
             allowNull: false,
           },
     },{
