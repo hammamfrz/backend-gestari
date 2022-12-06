@@ -1,11 +1,10 @@
-const Transaction = require('../../models/Transaction');
-const User = require('../../models/User');
-const { validateTransactionCreateSchema, validateTransactionUpdateSchema } = require('../../validator/transaction');
+const { Transaction } = require('../../models');
+const { validateTransactionCreateSchema } = require('../../validator/transaction');
 
 module.exports = {
     handlerGetTransaction: async (req, res) => {
         try {
-            const transaction = await Transaction.findAll();
+            const transaction = await transaction.findAll();
             res.status(200).json({
                 status: 'success',
                 data: transaction,
@@ -40,17 +39,14 @@ module.exports = {
     },
     handlerCreateTransaction: async (req, res) => {
         try {
-            const { id, status, id_katalog, quantity, dateRequired } = req.body;
+            const { id, status, date } = req.body;
             validateTransactionCreateSchema(req.body);
             const transaction = await Transaction.create({
                 id,
                 status,
-                quantity,
-                dateRequired,
+                date,
                 include: [{
-                    model : User,
-                    as : "user",
-                    attribute : ['owner', 'name']
+                    User : {id}
                 }]
             });
             res.status(201).json({

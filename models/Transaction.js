@@ -25,18 +25,17 @@ function createModelTransaction(sequelize, DataTypes) {
         allowNull: false,
       },
     }, {
-    timestamps: false,
     tableName: 'transaction',
     });
 
     Transaction.associate = (models) => {
       // 1 to 1 with orderDetail
-      Transaction.hasOne(models.OrderDetail, {
+      Transaction.hasOne(models.orderDetail, {
         foreignKey: 'transactionId',
     });
 
   };
   return Transaction;
-}
+};
 
 module.exports = createModelTransaction;

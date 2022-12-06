@@ -1,10 +1,8 @@
 const Joi = require('joi');
 
 const transactionCreateSchema = Joi.object({
-    id_member: Joi.number().min(0).required(),
-    id_katalog: Joi.string().min(0).required(),
-    quantity: Joi.number().integer().min(0).required(),
-    DateRequired: Joi.date(),
+    status: Joi.string().min(3).max(20).required(),
+    date: Joi.date(),
 }).unknown();
 
 const transactionUpdateSchema = Joi.object({
