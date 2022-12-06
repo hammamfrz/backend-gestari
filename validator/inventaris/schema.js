@@ -12,7 +12,6 @@ const inventarisCreateSchema = joi.object({
 }).unknown();
 
 const inventarisUpdateSchema = joi.object({
-    id_inventaris: joi.string().min(3).max(30).required(),
     name: joi.string().min(3).max(30).required(),
     brand: joi.string().min(3).max(30).required(),
     year_of_production: joi.string().min(3).max(30).required(),

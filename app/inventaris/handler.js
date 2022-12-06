@@ -70,7 +70,8 @@ module.exports = {
     },
     handlerUpdateInventaris: async (req, res) => {
         try {
-            const { id, name, status, quantity, satuan, price } = req.params;
+            const { id } = req.params;
+            const { name, status, quantity, satuan, price, brand, year_of_production} = req.body;
             validateInventarisUpdateSchema(req.body);
             const inventaris = await Inventaris.findByPk(id);
 
@@ -82,6 +83,9 @@ module.exports = {
             } else {
                 await inventaris.update({
                     name,
+                    brand,
+                    status,
+                    year_of_production,
                     status,
                     quantity,
                     satuan,
