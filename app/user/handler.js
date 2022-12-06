@@ -79,6 +79,9 @@ module.exports = {
                     NIK, 
                     email, 
                     password,
+                    birthdate,
+                    birthplace,
+                    gender,
                 });
                 res.status(200).json({
                     status: 'success',
