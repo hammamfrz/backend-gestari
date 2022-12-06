@@ -5,7 +5,7 @@ function createModelTransaction(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true,
     },
-    id_member: {
+    id_user: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },

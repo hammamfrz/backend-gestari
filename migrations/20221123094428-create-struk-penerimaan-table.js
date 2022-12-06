@@ -3,14 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('transaction', {
+    return queryInterface.createTable('struk_penerimaan', {
       id: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
+        autoIncrement: true,
       },
-      id_user: {
+      id_penerimaan: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -46,23 +45,18 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      status: {
-        type: Sequelize.ENUM('PENDING', 'SUCCESS', 'FAILED'),
-        defaultValue: 'PENDING',
-        allowNull: false,
-      },
-      createdAt: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-  });
-},
+    });
+  },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('transaction');
+    return queryInterface.dropTable('struk_penerimaan');
   }
 };
