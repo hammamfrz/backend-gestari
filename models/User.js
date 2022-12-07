@@ -83,16 +83,6 @@ function createModelUser(sequelize, DataTypes) {
   }, {
     tableName: 'user',
   });
-
-  User.associate = (models) => {
-    // 1 to many with Transaction
-    User.hasMany(models.Order, {
-      as: 'owner',
-      through: 'OrderDetail',
-      foreignKey: 'id_user'
-    });
-
-  };
   return User;
 }
 

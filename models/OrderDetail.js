@@ -48,22 +48,6 @@ function createModelOrderDetail(sequelize, DataTypes){
     },{
         tableName: 'orderDetail',
     });
-    OrderDetail.associate = (models) => {
-      // 1 to Many with orderDetail
-      OrderDetail.hasMany(models.Katalog, {
-        foreignKey: 'id_katalog',
-    });
-    OrderDetail.belongsTo(models.Order, {
-      foreignKey: 'id_order',
-      as: 'order detail'
-    });
-    OrderDetail.belongsTo(models.User, {
-      foreignKey: 'id_order',
-      as: 'order detail',
-      through: 'Order'
-    });
-
-  };
     return OrderDetail;
 }
 

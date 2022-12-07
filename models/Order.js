@@ -38,19 +38,6 @@ function createModelOrder(sequelize, DataTypes){
     }, {
         tableName: 'orders',
     });
-
-    Order.associate = (models) => {
-        // 1 to 1 with orderDetail
-        Order.belongsToMany(models.user, {
-          foreignKey: 'id_user',
-          as: 'order',
-      });
-      Order.belongsToMany(models.orderDetail, {
-        foreignKey: 'id_user',
-        as: 'orderDetail',
-    });
-  
-    };
     return Order;
 }
 
