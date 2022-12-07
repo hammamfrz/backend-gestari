@@ -13,10 +13,18 @@ module.exports = {
       id_member: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {         // Transaction belongsTo User 1:1
+          model: 'users',
+          key: 'id_member'
+        }
       },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {         // Transaction belongsTo Katalog 1:1
+          model: 'katalog',
+          key: 'id_katalog'
+        }
       },
       kertas_qty: {
         type: Sequelize.INTEGER,

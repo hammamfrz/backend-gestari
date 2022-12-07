@@ -50,6 +50,10 @@ function createModelTransaction(sequelize, DataTypes) {
     timestamps: false,
     tableName: 'transaction',
   });
+  Transaction.associate = function(models) {
+    Transaction.belongsTo(models.User, { foreignKey: 'id_member' });
+    Transaction.belongsTo(models.Katalog, { foreignKey: 'id_katalog' });
+    };
   return Transaction;
 }
 
