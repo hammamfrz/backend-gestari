@@ -61,7 +61,7 @@ module.exports = {
     handlerUpdateUser: async (req, res) => {
         try {
             const { id } = req.params;
-            const { name, address, phone, profile_picture, NIK, email, password, id_member } = req.body;
+            const { name, address, phone, profile_picture, NIK, email, password, birthdate, birthplace, gender } = req.body;
             const user = await User.findByPk(id);
 
             if (!user) {
@@ -71,7 +71,6 @@ module.exports = {
                 });
             } else {
                 await user.update({
-                    id_member,
                     name,
                     address,
                     phone,
@@ -175,5 +174,32 @@ module.exports = {
                 message: error.message,
             });
         }
-    }
+    },
+    handlerUpdateUserbyAdmin: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const { name, address, phone, profile_picture, NIK, email, password, id_member } = req.body;
+            const user = await User.findByPk(id);
+
+            if (!user) {
+                res.status(400).json({
+                    status: 'error',
+                    message: 'user tidak ditemukan!',
+                });
+            } else {
+                await user.update({
+                    id_member,
+            });
+                res.status(200).json({
+                    status: 'success',
+                    data: user,
+                });
+            }
+        } catch (error) {
+            res.status(500).json({
+                status: 'error',
+                message: error.message,
+            });
+        }
+    },
 };
