@@ -42,6 +42,7 @@ function createModelKatalog(sequelize, DataTypes) {
   }, {
       tableName: 'katalog',
     });
+
     return Katalog;
 }
 

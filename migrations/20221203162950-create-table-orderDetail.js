@@ -10,6 +10,10 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
+      id_order: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -31,6 +35,12 @@ module.exports = {
         allowNull: false,
       },
   });
+  Transaction.associate = (models) => {
+    // 1 to 1 with orderDetail
+    Transaction.hasOne(models.orderDetail, {
+      foreignKey: 'transactionId',
+    });
+  }
 },
   async down (queryInterface, Sequelize) {
     await queryInterface.dropTable('orderDetail');

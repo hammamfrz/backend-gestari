@@ -1,10 +1,12 @@
 function createModelUser(sequelize, DataTypes) {
-  const User = sequelize.define('User', {
+  const User = sequelize.define(
+  'User', 
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
     },
     id_member: {
       unique: true,
@@ -81,6 +83,14 @@ function createModelUser(sequelize, DataTypes) {
   }, {
     tableName: 'users',
   });
+
+  User.associate = (models) => {
+    // 1 to many with Transaction
+    User.hasMany(models.Transaction, {
+      foreignKey: 'owner',
+    });
+
+  };
   return User;
 }
 
