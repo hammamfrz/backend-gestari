@@ -7,13 +7,7 @@ const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
-const models = require('../models');
 const db = {};
-
-const Order = require('./Order');
-const OrderDetail = require('./OrderDetail');
-const User = require('./User');
-const Transaction = require('./Transaction');
 
 let sequelize;
 if (config.use_env_variable) {
@@ -38,23 +32,19 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-Order.belongsToMany(models.User, {foreignKey: 'id_user',as: 'order',});
-Order.belongsToMany(models.OrderDetail, {foreignKey: 'id_user',as: 'orderDetail',});
-OrderDetail.hasMany(models.Katalog, {foreignKey: 'id_katalog',});
-OrderDetail.belongsTo(models.Order, {foreignKey: 'id_order',as: 'order detail'});
-OrderDetail.belongsTo(models.User, {foreignKey: 'id_order',as: 'order detail',through: 'Order'});
-Transaction.hasOne(models.OrderDetail, {foreignKey: 'transactionId',});
-Transaction.belongsTo(models.User, {foreignKey: 'id_user',as: 'transaction',});
-User.hasMany(models.Order, {as: 'owner',through: 'OrderDetail',foreignKey: 'id_user'});
+const { user, orders, orderDetail, transaction, Katalog } = sequelize.models;
 
+orders.belongsToMany(user, { through: orderDetail, foreignKey: 'id_user' });
+orders.belongsToMany(orderDetail, { through: orderDetail, foreignKey: 'id_order' });
+orderDetail.belongsTo(orders, { foreignKey: 'id_order' });
+orderDetail.belongsTo(user, { foreignKey: 'id_user' });
+orderDetail.belongsTo(Katalog, { foreignKey: 'id_katalog' });
+user.belongsToMany(orders, { through: orderDetail, foreignKey: 'id_user' });
+transaction.belongsTo(user, { foreignKey: 'id_user' });
+transaction.hasOne(orderDetail, { foreignKey: 'transactionId' });
+user.hasMany(transaction, { foreignKey: 'id_user' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = {
-  db,
-  Order,
-  OrderDetail,
-  User,
-  Transaction,
-};
+module.exports = db;

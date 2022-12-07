@@ -81,7 +81,7 @@ function createModelUser(sequelize, DataTypes) {
       allowNull: false,
     },
   }, {
-    tableName: 'user',
+    tableName: 'users',
   });
   return User;
 }
