@@ -18,6 +18,20 @@ module.exports = {
             });
         }
     },
+    handlerGetUserById: async (req, res) => {
+        try {
+            const user = await User.findByPk(id);
+            res.status(200).json({
+                status: 'success',
+                data: user,
+            });
+        } catch (error) {
+            res.status(500).json({
+                status: 'error',
+                message: error.message,
+            });
+        }
+    },
     handlerCreateUser: async (req, res) => {
         try {
             console.log(req.body);

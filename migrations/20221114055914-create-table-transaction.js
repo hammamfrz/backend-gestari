@@ -18,39 +18,18 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      kertas_qty: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      plastik_qty: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      kaca_qty: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      logam_qty: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      khusus_qty: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      total_qty: {
+      id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
       total_price: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
-      status: {
-        type: Sequelize.ENUM('PENDING', 'SUCCESS', 'FAILED'),
-        defaultValue: 'PENDING',
-        allowNull: false,
-      },
+      dateRequired: {
+        type: Sequelize.DATE,
+        allowNull: true,
+       },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,

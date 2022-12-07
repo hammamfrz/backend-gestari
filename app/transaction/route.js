@@ -2,6 +2,7 @@ const express = require('express');
 const { handlerGetTransaction, handlerCreateTransaction, handlerGetTransactionById, handlerDeleteTransaction } = require('./handler');
 const router = express.Router();
 
+
 // API 1: GET /transaction
 router.get('/', handlerGetTransaction);
 

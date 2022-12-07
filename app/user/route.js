@@ -1,5 +1,6 @@
 const express = require('express');
-const { handlerGetUser, handlerCreateUser, handlerUpdateUser, handlerDeleteUser, handlerLoginUser, handlerLogoutUser, handlerUpdateUserbyAdmin } = require('./handler');
+const { handlerGetUser, handlerCreateUser, handlerUpdateUser, handlerDeleteUser, handlerLoginUser, handlerLogoutUser,  handlerGetUserById, handlerUpdateUserbyAdmin } = require('./handler');
+
 const router = express.Router();
 
 // API 1: GET /user
@@ -22,6 +23,9 @@ router.post('/logout', handlerLogoutUser);
 
 // API 7: UPDATE /user/admin/:id
 router.put('/admin/:id', handlerUpdateUserbyAdmin);
+
+// API : GET /user/:id
+router.get('/:id', handlerGetUserById);
 
 
 

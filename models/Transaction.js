@@ -1,56 +1,41 @@
 function createModelTransaction(sequelize, DataTypes) {
-  const Transaction = sequelize.define('Transaction', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    id_member: {
+  const Transaction = sequelize.define(
+    'Transaction', 
+    {
+      id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    id_katalog: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    kertas_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    plastik_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    kaca_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    logam_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    khusus_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    total_qty: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    total_price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    status: {
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      status: {
         type: DataTypes.ENUM('PENDING', 'SUCCESS', 'FAILED'),
         defaultValue: 'PENDING',
         allowNull: false,
-    },
-  }, {
-    timestamps: false,
+     },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+    }, {
     tableName: 'transaction',
-  });
+    });
+
+    Transaction.associate = (models) => {
+      // 1 to 1 with orderDetail
+      Transaction.hasOne(models.orderDetail, {
+        foreignKey: 'transactionId',
+    });
+
+  };
   return Transaction;
-}
+};
 
 module.exports = createModelTransaction;
