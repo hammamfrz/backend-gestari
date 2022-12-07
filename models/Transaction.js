@@ -1,12 +1,16 @@
 function createModelTransaction(sequelize, DataTypes) {
   const Transaction = sequelize.define(
-    'Transaction', 
+    'transaction', 
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
+      id_user: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        },
       status: {
         type: DataTypes.ENUM('PENDING', 'SUCCESS', 'FAILED'),
         defaultValue: 'PENDING',
@@ -30,10 +34,10 @@ function createModelTransaction(sequelize, DataTypes) {
 
     Transaction.associate = (models) => {
       // 1 to 1 with orderDetail
-      Transaction.hasOne(models.orderDetail, {
-        foreignKey: 'transactionId',
+      Transaction.belongsTo(models.User, {
+        foreignKey: 'id_user',
+        as: 'transaction',
     });
-
   };
   return Transaction;
 };

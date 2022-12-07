@@ -10,21 +10,21 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      id_member: {
+      id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      id_katalog: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      total_price: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
+        references: {
+          model: 'katalog',
+          key:'id'
+        }
       },
       dateRequired: {
         type: Sequelize.DATE,

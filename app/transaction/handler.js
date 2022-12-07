@@ -46,7 +46,7 @@ module.exports = {
                 status,
                 date,
                 include: [{
-                    User : {id}
+                    owner
                 }]
             });
             res.status(201).json({

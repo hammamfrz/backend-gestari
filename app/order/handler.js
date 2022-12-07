@@ -41,12 +41,11 @@ module.exports = {
     },
     handlerCreateOrder: async (req, res) => {
         try {
-            const { id, id_member, status, dateOrdered } = req.body;
+            const { id, id_user, status, dateOrdered } = req.body;
             validateCreateOrderSchema(req.body);
             const order = await order.create({
                 id,
-                id_member,
-                id_transaction,
+                id_user,
                 status,
                 dateOrdered,
             });

@@ -10,9 +10,13 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      id_member: {
+      id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       status: {
         type: Sequelize.ENUM('PENDING', 'SUCCESS', 'FAILED'),
