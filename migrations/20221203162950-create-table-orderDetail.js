@@ -13,10 +13,18 @@ module.exports = {
       id_order: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'orders',
+          key: 'id'
+        }
       },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'katalog',
+          key:'id'
+        }
       },
       quantity: {
         type: Sequelize.INTEGER,

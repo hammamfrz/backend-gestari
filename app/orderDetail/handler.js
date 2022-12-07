@@ -43,15 +43,14 @@ module.exports = {
 
     handlerCreateOrderDetail: async (req, res) => {
         try {
-            const { id, id_order, id_katalog, quantity, total_price} = req.body;
+            const { id, id_order, id_katalog, quantity} = req.body;
             validateCreateOrderSchema(req.body);
-            
             const orderDetail = await order.create({
                 id,
                 id_order,
+                id_user,
                 id_katalog,
                 quantity,
-                total_price,
             });
             res.status(201).json({
                 status: 'success',

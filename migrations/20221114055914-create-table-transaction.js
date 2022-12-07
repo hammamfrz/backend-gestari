@@ -10,12 +10,14 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      id_member: {
+      id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {         // Transaction belongsTo User 1:1
+
+        references: {
           model: 'users',
-          key: 'id_member'
+          key: 'id' // Transaction belongsTo User 1:1
+
         }
       },
       id_katalog: {

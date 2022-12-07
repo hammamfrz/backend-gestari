@@ -1,6 +1,6 @@
 function createModelUser(sequelize, DataTypes) {
   const User = sequelize.define(
-  'User', 
+  'user', 
   {
     id: {
       type: DataTypes.INTEGER,
@@ -81,13 +81,15 @@ function createModelUser(sequelize, DataTypes) {
       allowNull: false,
     },
   }, {
-    tableName: 'users',
+    tableName: 'user',
   });
 
   User.associate = (models) => {
     // 1 to many with Transaction
-    User.hasMany(models.Transaction, {
-      foreignKey: 'owner',
+    User.hasMany(models.Order, {
+      as: 'owner',
+      through: 'OrderDetail',
+      foreignKey: 'id_user'
     });
 
   };
