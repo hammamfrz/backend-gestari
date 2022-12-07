@@ -30,9 +30,13 @@ function createModelTransaction(sequelize, DataTypes) {
       },
     }, {
     tableName: 'transaction',
+  });
+  Transaction.associate = (models) => {
+    // 1 to 1 with orderDetail
+    Transaction.hasOne(models.orderDetail, {
+      foreignKey: 'transactionId',
     });
-
-    Transaction.associate = (models) => {
+Transaction.associate = (models) => {
       // 1 to 1 with orderDetail
       Transaction.belongsTo(models.User, {
         foreignKey: 'id_user',

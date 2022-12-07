@@ -13,18 +13,28 @@ module.exports = {
       id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
+
         references: {
           model: 'users',
-          key: 'id'
+          key: 'id' // Transaction belongsTo User 1:1
+
         }
       },
       id_katalog: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
+        references: {         // Transaction belongsTo Katalog 1:1
           model: 'katalog',
-          key:'id'
+          key: 'id_katalog'
         }
+      },
+      id_katalog: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      total_price: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
       dateRequired: {
         type: Sequelize.DATE,
