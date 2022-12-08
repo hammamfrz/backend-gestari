@@ -1,6 +1,5 @@
 const { Katalog } = require('../../models');
 const { validateKatalogCreateSchema } = require('../../validator/katalog');
-const jwt = require('jsonwebtoken');
 
 module.exports = {
     handlerGetKatalog: async (req, res) => {
