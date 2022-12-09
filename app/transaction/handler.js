@@ -5,7 +5,7 @@ const { user: User } = require('../../models');
 module.exports = {
     handlerGetTransaction: async (req, res) => {
         try {
-            const transaction = await Transaction.findAll({include: [OrderDetail]});
+            const transaction = await Transaction.findAll({include: [{model: OrderDetail, attributes: ['id', 'id_transaction', 'id_katalog', 'quantity', 'total_price']}]});
             res.status(200).json({
                 status: 'success',
                 data: transaction,
