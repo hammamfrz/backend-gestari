@@ -8,6 +8,7 @@ const journeyRouter = require('./app/journey/route');
 const transactionRouter = require('./app/transaction/route')
 const inventoryRouter = require('./app/inventaris/route')
 const orderRouter = require('./app/order/route')
+const orderDetailRouter = require('./app/orderDetail/route')
 const corsMiddleware = require('./middleware/cors');
 const router = require('./routes');
 const multer = require('multer');
@@ -50,6 +51,8 @@ app.use('/journey', journeyRouter);
 app.use('/transaction', transactionRouter);
 app.use('/inventory', inventoryRouter);
 app.use('/order', orderRouter);
+app.use('/orderDetail', orderDetailRouter);
+
 app.post('/uploads', imageUpload.single('image'), (req, res) => {
     res.send(req.file)
 }, (error, req, res, next) => {

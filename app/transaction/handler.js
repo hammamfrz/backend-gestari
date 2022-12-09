@@ -1,10 +1,11 @@
-const { Transaction } = require('../../models');
+const { transaction: Transaction, orderDetail : OrderDetail } = require('../../models');
 const { validateTransactionCreateSchema } = require('../../validator/transaction');
+const { user: User } = require('../../models');
 
 module.exports = {
     handlerGetTransaction: async (req, res) => {
         try {
-            const transaction = await transaction.findAll();
+            const transaction = await Transaction.findAll({include: [OrderDetail]});
             res.status(200).json({
                 status: 'success',
                 data: transaction,
@@ -19,7 +20,7 @@ module.exports = {
     handlerGetTransactionById: async (req, res) => {
         try {
             const { id } = req.params;
-            const transaction = await transaction.findByPk(id);
+            const transaction = await Transaction.findByPk(id);
             if (!transaction) {
                 res.status(400).json({
                     status: 'error',
@@ -39,14 +40,14 @@ module.exports = {
     },
     handlerCreateTransaction: async (req, res) => {
         try {
-            const { id, status, date } = req.body;
+            const { id, date, id_user } = req.body;
             validateTransactionCreateSchema(req.body);
             const transaction = await Transaction.create({
                 id,
-                status,
                 date,
+                id_user,
                 include: [{
-                    owner
+                    User
                 }]
             });
             res.status(201).json({
@@ -58,12 +59,13 @@ module.exports = {
                 status: 'error',
                 message: error.message,
             });
+            console.log(error);
         }
     },
     handlerDeleteTransaction: async (req, res) => {
         try {
             const { id } = req.params;
-            const transaction = await transaction.findByPk(id);
+            const transaction = await Transaction.findByPk(id);
 
             if (!transaction) {
                 res.status(400).json({
@@ -72,7 +74,7 @@ module.exports = {
                 });
             }
 
-            await transaction.destroy();
+            await Transaction.destroy();
 
             res.status(200).json({
                 status: 'success',

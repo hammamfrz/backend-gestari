@@ -20,18 +20,6 @@ module.exports = {
 
         }
       },
-      id_katalog: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // Transaction belongsTo Katalog 1:1
-          model: 'katalog',
-          key: 'id_katalog'
-        }
-      },
-      id_katalog: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
       total_price: {
         type: Sequelize.INTEGER,
         allowNull: true,

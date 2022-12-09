@@ -36,12 +36,11 @@ const { user, orders, orderDetail, transaction, Katalog } = sequelize.models;
 
 orders.belongsToMany(user, { through: orderDetail, foreignKey: 'id_user' });
 orders.belongsToMany(orderDetail, { through: orderDetail, foreignKey: 'id_order' });
-orderDetail.belongsTo(orders, { foreignKey: 'id_order' });
-orderDetail.belongsTo(user, { foreignKey: 'id_user' });
+orderDetail.belongsTo(transaction, { foreignKey: 'id_transaction' });
 orderDetail.belongsTo(Katalog, { foreignKey: 'id_katalog' });
 user.belongsToMany(orders, { through: orderDetail, foreignKey: 'id_user' });
 transaction.belongsTo(user, { foreignKey: 'id_user' });
-transaction.hasOne(orderDetail, { foreignKey: 'transactionId' });
+transaction.hasMany(orderDetail, { foreignKey: 'id_transaction' });
 user.hasMany(transaction, { foreignKey: 'id_user' });
 
 db.sequelize = sequelize;

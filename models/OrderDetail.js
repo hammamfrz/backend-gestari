@@ -6,19 +6,11 @@ function createModelOrderDetail(sequelize, DataTypes){
         primaryKey: true,
         allowNull: false,
       },
-      id_order: {
+      id_transaction: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'order',
-          key: 'id'
-        }
-      },
-      id_user: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'users',
           key: 'id'
         }
       },
