@@ -6,7 +6,10 @@ const { Katalog } = require('../../models');
 module.exports = {
     handlerGetOrderDetail: async (req, res) => {
         try {
-            const orderDetail = await OrderDetail.findAll();
+            const orderDetail = await OrderDetail.findAll({
+                attributes: ['id', 'id_transaction', 'id_katalog', 'quantity', 'total_price'],
+                include: [{ model: Katalog, attributes: ['type'] }], 
+            });
             res.status(200).json({
                 status: 'success',
                 data: orderDetail,
