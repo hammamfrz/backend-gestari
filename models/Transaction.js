@@ -1,6 +1,6 @@
 function createModelTransaction(sequelize, DataTypes) {
   const Transaction = sequelize.define(
-    'transaction', 
+    'transaction',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -10,13 +10,8 @@ function createModelTransaction(sequelize, DataTypes) {
       id_user: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        },
-      status: {
-        type: DataTypes.ENUM('PENDING', 'SUCCESS', 'FAILED'),
-        defaultValue: 'PENDING',
-        allowNull: false,
-     },
-      date: {
+      },
+      dateRequired: {
         type: DataTypes.DATE,
         allowNull: true,
       },
